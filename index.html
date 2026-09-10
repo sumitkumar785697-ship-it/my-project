@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sentrium — Enterprise-Level Cybersecurity Made Simple for Small Business</title>
+<meta name="description" content="Sentrium gives small businesses, freelancers, clinics, and local shops affordable, easy-to-understand cybersecurity protection against phishing, weak passwords, data theft, and hacking — no in-house security team required.">
+<meta name="keywords" content="cybersecurity for small business, affordable cybersecurity, phishing protection, password security, small business data protection, security awareness training, cyber risk assessment">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><text y=%2220%22 font-size=%2220%22>🛡️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: {
+            950: '#03050b',
+            925: '#050810',
+            900: '#080d1a',
+            850: '#0b1120',
+            800: '#101830',
+            700: '#16213f',
+            600: '#1e2c4d',
+            500: '#2a3a5e',
+          },
+        },
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          display: ['Manrope', 'ui-sans-serif', 'system-ui'],
+        },
+        boxShadow: {
+          glow: '0 0 40px -8px rgba(34,211,238,0.35)',
+          glowBlue: '0 0 50px -10px rgba(59,130,246,0.45)',
+        },
+      },
+    },
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #03050b;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(34,211,238,0.08), transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(59,130,246,0.08), transparent 40%);
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 42px 42px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 20%, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 20%, black 30%, transparent 75%);
+  }
+  .text-gradient {
+    background: linear-gradient(90deg, #67e8f9, #38bdf8 45%, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .card-hover { transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+  .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 45px -20px rgba(34,211,238,0.25); border-color: rgba(34,211,238,0.4); }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-14px); }
+  }
+  .float { animation: float 6s ease-in-out infinite; }
+  .float-slow { animation: float 8s ease-in-out infinite; }
+  .float-delay { animation-delay: 1.5s; }
+  .float-delay2 { animation-delay: 3s; }
+
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(34,211,238,0.45); }
+    100% { box-shadow: 0 0 0 24px rgba(34,211,238,0); }
+  }
+  .pulse-ring { animation: pulse-ring 2.4s cubic-bezier(0.4,0,0.6,1) infinite; }
+
+  .dot-live { position: relative; }
+  .dot-live::after {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 9999px;
+    animation: pulse-ring 2s infinite;
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+
+  .accordion-content { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease; }
+  .accordion-item.open .accordion-content { max-height: 400px; }
+  .accordion-item.open .chevron { transform: rotate(180deg); }
+  .chevron { transition: transform .3s ease; }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #080d1a; }
+  ::-webkit-scrollbar-thumb { background: #1e2c4d; border-radius: 4px; }
+
+  .gauge {
+    background: conic-gradient(#22d3ee calc(var(--score) * 1%), rgba(255,255,255,0.08) 0);
+  }
+
+  #mobile-menu { transition: max-height .35s ease, opacity .3s ease; }
+</style>
+</head>
+<body class="font-sans text-slate-300 antialiased">
+
+<!-- NAVBAR -->
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-navy-950/80 backdrop-blur-lg transition-all">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-2.5 group">
+        <span class="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-glow">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-5 w-5 text-navy-950">
+            <path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z" fill="currentColor"/>
+            <path d="M9 12l2 2 4-4" stroke="#03050b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(0,0)"/>
+          </svg>
+        </span>
+        <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white">Sentrium</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#home" class="hover:text-cyan-300 transition-colors">Home</a>
+        <a href="#solutions" class="hover:text-cyan-300 transition-colors">Solutions</a>
+        <a href="#how-it-works" class="hover:text-cyan-300 transition-colors">How It Works</a>
+        <a href="#security-check" class="hover:text-cyan-300 transition-colors">Security Check</a>
+        <a href="#pricing" class="hover:text-cyan-300 transition-colors">Pricing</a>
+        <a href="#about" class="hover:text-cyan-300 transition-colors">About</a>
+        <a href="#contact" class="hover:text-cyan-300 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="#security-check" class="px-4 py-2 rounded-lg text-sm font-semibold border border-white/15 text-slate-200 hover:border-cyan-400/60 hover:text-cyan-300 transition-colors">Run Free Security Check</a>
+        <a href="#pricing" class="px-4 py-2 rounded-lg text-sm font-semibold bg-gradient-to-r from-cyan-400 to-blue-500 text-navy-950 hover:shadow-glow transition-shadow">Get Protected</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-btn" class="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-white/10 text-slate-200" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="lg:hidden max-h-0 opacity-0 overflow-hidden bg-navy-950/95 border-t border-white/5">
+    <div class="px-5 py-5 flex flex-col gap-4 text-sm font-medium">
+      <a href="#home" class="nav-link py-1">Home</a>
+      <a href="#solutions" class="nav-link py-1">Solutions</a>
+      <a href="#how-it-works" class="nav-link py-1">How It Works</a>
+      <a href="#security-check" class="nav-link py-1">Security Check</a>
+      <a href="#pricing" class="nav-link py-1">Pricing</a>
+      <a href="#about" class="nav-link py-1">About</a>
+      <a href="#contact" class="nav-link py-1">Contact</a>
+      <div class="flex flex-col gap-3 pt-3 border-t border-white/10">
+        <a href="#security-check" class="nav-link text-center px-4 py-2.5 rounded-lg border border-white/15">Run Free Security Check</a>
+        <a href="#pricing" class="nav-link text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-navy-950 font-semibold">Get Protected</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="home" class="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32">
+    <div class="absolute inset-0 bg-grid"></div>
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/25 rounded-full blur-3xl"></div>
+    <div class="absolute top-40 -right-32 w-[28rem] h-[28rem] bg-blue-600/20 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-cyan-300 tracking-wide uppercase">
+          <span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+          Built for small business, not big enterprise
+        </span>
+        <h1 class="mt-6 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-tight text-white">
+          Protect Your Small Business From <span class="text-gradient">Cyber Threats.</span>
+        </h1>
+        <p class="mt-6 text-lg text-slate-400 max-w-xl leading-relaxed">
+          Simple, affordable cybersecurity protection that helps small businesses defend their passwords, data, employees, devices, and digital systems — no security team required.
+        </p>
+
+        <div class="mt-9 flex flex-col sm:flex-row gap-4">
+          <a href="#security-check" class="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-navy-950 font-semibold hover:shadow-glow transition-all">
+            Run Free Security Check
+            <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#pricing" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/15 text-slate-100 font-semibold hover:border-cyan-400/60 hover:text-cyan-300 transition-colors">
+            Get Protected
+          </a>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-x-8 gap-y-4">
+          <div class="flex items-center gap-2 text-sm text-slate-400">
+            <svg class="h-4 w-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M12 3l8 3v5c0 5-3.4 8.7-8 11-4.6-2.3-8-6-8-11V6l8-3Z"/></svg>
+            Built for Small Businesses
+          </div>
+          <div class="flex items-center gap-2 text-sm text-slate-400">
+            <svg class="h-4 w-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            24/7 Security Monitoring
+          </div>
+          <div class="flex items-center gap-2 text-sm text-slate-400">
+            <svg class="h-4 w-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+            Simple &amp; Affordable
+          </div>
+        </div>
+      </div>
+
+      <!-- Illustration -->
+      <div class="reveal relative mx-auto w-full max-w-md aspect-square">
+        <div class="absolute inset-0 rounded-full bg-cyan-400/10 blur-2xl"></div>
+        <div class="absolute inset-6 rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl flex items-end justify-center overflow-hidden">
+          <!-- Buildings -->
+          <div class="flex items-end gap-2 pb-6 opacity-90">
+            <div class="w-10 h-24 bg-navy-700 rounded-t-md border border-white/10"></div>
+            <div class="w-14 h-32 bg-navy-600 rounded-t-md border border-white/10"></div>
+            <div class="w-10 h-20 bg-navy-700 rounded-t-md border border-white/10"></div>
+          </div>
+          <!-- Shield centered on top -->
+          <div class="absolute top-10 left-1/2 -translate-x-1/2 float">
+            <div class="relative h-28 w-28 rounded-full bg-navy-900/80 border border-cyan-400/30 flex items-center justify-center pulse-ring">
+              <svg class="h-14 w-14 text-cyan-400" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <!-- floating icons -->
+          <div class="absolute top-6 left-5 h-10 w-10 rounded-xl bg-navy-900/80 border border-white/10 flex items-center justify-center float-slow">
+            <svg class="h-5 w-5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="absolute top-16 right-6 h-10 w-10 rounded-xl bg-navy-900/80 border border-white/10 flex items-center justify-center float-slow float-delay">
+            <svg class="h-5 w-5 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </div>
+          <div class="absolute bottom-24 right-4 h-10 w-10 rounded-xl bg-navy-900/80 border border-white/10 flex items-center justify-center float-slow float-delay2">
+            <svg class="h-5 w-5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREAT / RISKS -->
+  <section class="relative py-24 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="reveal max-w-2xl mx-auto text-center">
+        <span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">The Reality</span>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-white">Small businesses are a growing target</h2>
+        <p class="mt-4 text-slate-400">Attackers know small teams rarely have dedicated security staff — making everyday tools and habits an easy entry point.</p>
+      </div>
+
+      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card -->
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <div class="h-11 w-11 rounded-xl bg-red-500/10 flex items-center justify-center mb-4">
+            <svg class="h-5 w-5 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">Weak &amp; Reused Passwords</h3>
+          <p class="mt-2 text-sm text-slate-400">One leaked password can unlock multiple business accounts at once.</p>
+        </div>
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <div class="h-11 w-11 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
+            <svg class="h-5 w-5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6M14 13l7 7M3 20l7-7"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">Phishing Emails</h3>
+          <p class="mt-2 text-sm text-slate-400">Fake emails trick employees into handing over credentials or money.</p>
+        </div>
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <div class="h-11 w-11 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
+            <svg class="h-5 w-5 text-purple-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">Data Theft</h3>
+          <p class="mt-2 text-sm text-slate-400">Customer and business data is a valuable target for attackers.</p>
+        </div>
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <div class="h-11 w-11 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-4">
+            <svg class="h-5 w-5 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6l8-4Z"/><path d="M9.5 12.5l2 2 3.5-4"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">Hacking Attempts</h3>
+          <p class="mt-2 text-sm text-slate-400">Automated scans probe small business systems around the clock.</p>
+        </div>
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <div class="h-11 w-11 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+            <svg class="h-5 w-5 text-blue-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">Missing Security Software</h3>
+          <p class="mt-2 text-sm text-slate-400">Many small teams run devices without any real protection installed.</p>
+        </div>
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <div class="h-11 w-11 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+            <svg class="h-5 w-5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-5 7-5s7 1.7 7 5"/><circle cx="17" cy="8" r="2.4"/><path d="M17 11.5c2.4.3 4 1.6 4 3.5"/></svg>
+          </div>
+          <h3 class="font-semibold text-white">Poor Employee Awareness</h3>
+          <p class="mt-2 text-sm text-slate-400">Employees are your biggest asset — or, without training, your biggest risk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section id="solutions" class="relative py-24 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="reveal max-w-2xl mx-auto text-center">
+        <span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">Our Platform</span>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-white">One Security Platform for Your Small Business</h2>
+        <p class="mt-4 text-slate-400">Everything you need to defend your business, in one simple dashboard — no security expertise required.</p>
+      </div>
+
+      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-7">
+          <div class="h-12 w-12 rounded-xl bg-cyan-400/10 flex items-center justify-center mb-5">
+            <svg class="h-6 w-6 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/><circle cx="12" cy="15" r="1.5"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-white">Password Security</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Detect weak, reused, or leaked passwords and guide your team toward strong, unique credentials and MFA.</p>
+        </div>
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-7">
+          <div class="h-12 w-12 rounded-xl bg-blue-400/10 flex items-center justify-center mb-5">
+            <svg class="h-6 w-6 text-blue-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-white">Phishing Protection</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Real-time email threat detection plus friendly simulated tests that keep your team sharp.</p>
+        </div>
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-7">
+          <div class="h-12 w-12 rounded-xl bg-purple-400/10 flex items-center justify-center mb-5">
+            <svg class="h-6 w-6 text-purple-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-white">Data Protection</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Encrypt sensitive files, monitor exposure, and keep reliable backups of customer and business data.</p>
+        </div>
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-7">
+          <div class="h-12 w-12 rounded-xl bg-emerald-400/10 flex items-center justify-center mb-5">
+            <svg class="h-6 w-6 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-white">Device Security</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Protect laptops, phones, and POS systems your team relies on every day, wherever they work.</p>
+        </div>
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-7">
+          <div class="h-12 w-12 rounded-xl bg-orange-400/10 flex items-center justify-center mb-5">
+            <svg class="h-6 w-6 text-orange-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-white">Security Monitoring</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Around-the-clock monitoring flags unusual activity early, before it becomes a costly problem.</p>
+        </div>
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-7">
+          <div class="h-12 w-12 rounded-xl bg-pink-400/10 flex items-center justify-center mb-5">
+            <svg class="h-6 w-6 text-pink-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-5 7-5s7 1.7 7 5"/><circle cx="17" cy="8" r="2.4"/><path d="M17 11.5c2.4.3 4 1.6 4 3.5"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-white">Employee Security Training</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Bite-sized, jargon-free training turns your team into an active layer of defense.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="relative py-24 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="reveal max-w-2xl mx-auto text-center">
+        <span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">How It Works</span>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-white">From risk to protected, in four simple steps</h2>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-4 gap-8 relative">
+        <div class="hidden md:block absolute top-8 left-[12%] right-[12%] h-px bg-gradient-to-r from-cyan-400/60 via-blue-500/60 to-cyan-400/60"></div>
+
+        <div class="reveal relative text-center">
+          <div class="mx-auto h-16 w-16 rounded-full bg-navy-900 border border-cyan-400/40 flex items-center justify-center text-cyan-300 font-display font-bold text-lg relative z-10">01</div>
+          <h3 class="mt-5 font-semibold text-white">Assess</h3>
+          <p class="mt-2 text-sm text-slate-400">Run a quick, guided security check on your business.</p>
+        </div>
+        <div class="reveal relative text-center">
+          <div class="mx-auto h-16 w-16 rounded-full bg-navy-900 border border-cyan-400/40 flex items-center justify-center text-cyan-300 font-display font-bold text-lg relative z-10">02</div>
+          <h3 class="mt-5 font-semibold text-white">Identify</h3>
+          <p class="mt-2 text-sm text-slate-400">We highlight your top risks in plain, simple language.</p>
+        </div>
+        <div class="reveal relative text-center">
+          <div class="mx-auto h-16 w-16 rounded-full bg-navy-900 border border-cyan-400/40 flex items-center justify-center text-cyan-300 font-display font-bold text-lg relative z-10">03</div>
+          <h3 class="mt-5 font-semibold text-white">Protect</h3>
+          <p class="mt-2 text-sm text-slate-400">Activate the right layer of protection for your business.</p>
+        </div>
+        <div class="reveal relative text-center">
+          <div class="mx-auto h-16 w-16 rounded-full bg-navy-900 border border-cyan-400/40 flex items-center justify-center text-cyan-300 font-display font-bold text-lg relative z-10">04</div>
+          <h3 class="mt-5 font-semibold text-white">Monitor</h3>
+          <p class="mt-2 text-sm text-slate-400">We continuously watch for new threats, 24/7.</p>
+        </div>
+      </div>
+
+      <!-- DASHBOARD PREVIEW -->
+      <div class="reveal mt-20 rounded-2xl border border-white/10 bg-navy-900/60 shadow-2xl overflow-hidden">
+        <div class="flex items-center gap-2 px-5 py-3 border-b border-white/10 bg-white/[0.02]">
+          <span class="h-3 w-3 rounded-full bg-red-400/70"></span>
+          <span class="h-3 w-3 rounded-full bg-amber-400/70"></span>
+          <span class="h-3 w-3 rounded-full bg-emerald-400/70"></span>
+          <span class="ml-3 text-xs font-medium text-slate-400">Dashboard Concept</span>
+        </div>
+        <div class="p-6 sm:p-8 grid md:grid-cols-4 gap-5">
+          <div class="rounded-xl border border-white/10 bg-white/[0.03] p-5 flex flex-col items-center justify-center text-center">
+            <div class="h-24 w-24 rounded-full gauge flex items-center justify-center" style="--score:78">
+              <div class="h-[70px] w-[70px] rounded-full bg-navy-900 flex flex-col items-center justify-center">
+                <span class="text-xl font-bold text-white">78</span>
+                <span class="text-[10px] text-slate-400">/ 100</span>
+              </div>
+            </div>
+            <p class="mt-3 text-xs font-semibold text-slate-300">Security Score</p>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-white/[0.03] p-5">
+            <p class="text-xs text-slate-400 mb-2">Threat Status</p>
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+              <span class="font-semibold text-white">Elevated</span>
+            </div>
+            <p class="mt-3 text-xs text-slate-500">2 login attempts flagged this week</p>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-white/[0.03] p-5">
+            <p class="text-xs text-slate-400 mb-2">Security Issues</p>
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
+              <span class="font-semibold text-white">3 Found</span>
+            </div>
+            <p class="mt-3 text-xs text-slate-500">Weak passwords, 1 unpatched device</p>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-white/[0.03] p-5">
+            <p class="text-xs text-slate-400 mb-2">Protection Status</p>
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+              <span class="font-semibold text-white">Active</span>
+            </div>
+            <p class="mt-3 text-xs text-slate-500">Monitoring 12 devices, 4 accounts</p>
+          </div>
+
+          <div class="md:col-span-4 rounded-xl border border-white/10 bg-white/[0.03] p-5">
+            <p class="text-xs text-slate-400 mb-3">Recent Alerts</p>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-sm">
+                <div class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-red-400"></span><span class="text-slate-200">Suspicious login attempt blocked</span></div>
+                <span class="text-xs text-slate-500">2h ago</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <div class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-amber-400"></span><span class="text-slate-200">Phishing email quarantined</span></div>
+                <span class="text-xs text-slate-500">6h ago</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <div class="flex items-center gap-3"><span class="h-2 w-2 rounded-full bg-emerald-400"></span><span class="text-slate-200">Password policy update completed</span></div>
+                <span class="text-xs text-slate-500">1d ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY CHECK / QUIZ -->
+  <section id="security-check" class="relative py-24 border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8">
+      <div class="reveal text-center">
+        <span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">Free Assessment</span>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-white">What's Your Business Security Score?</h2>
+        <p class="mt-4 text-slate-400">Answer 6 quick questions to get an illustrative sense of your risk level — plus simple, practical next steps.</p>
+      </div>
+
+      <form id="quiz-form" class="reveal mt-12 space-y-6">
+        <!-- Q1 -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <p class="font-medium text-white mb-4">1. Do you or your employees reuse the same password across multiple accounts?</p>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <label class="quiz-option"><input type="radio" name="q1" value="0"><span>Yes, often</span></label>
+            <label class="quiz-option"><input type="radio" name="q1" value="1"><span>Not sure</span></label>
+            <label class="quiz-option"><input type="radio" name="q1" value="2"><span>No, all unique</span></label>
+          </div>
+        </div>
+        <!-- Q2 -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <p class="font-medium text-white mb-4">2. Do you use multi-factor authentication (MFA) on business accounts?</p>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <label class="quiz-option"><input type="radio" name="q2" value="2"><span>Yes, everywhere</span></label>
+            <label class="quiz-option"><input type="radio" name="q2" value="1"><span>On some accounts</span></label>
+            <label class="quiz-option"><input type="radio" name="q2" value="0"><span>No / not sure</span></label>
+          </div>
+        </div>
+        <!-- Q3 -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <p class="font-medium text-white mb-4">3. Has your team received any phishing awareness training?</p>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <label class="quiz-option"><input type="radio" name="q3" value="2"><span>Yes, regularly</span></label>
+            <label class="quiz-option"><input type="radio" name="q3" value="1"><span>Once, a while ago</span></label>
+            <label class="quiz-option"><input type="radio" name="q3" value="0"><span>Never</span></label>
+          </div>
+        </div>
+        <!-- Q4 -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <p class="font-medium text-white mb-4">4. Do all business devices have antivirus / endpoint protection installed?</p>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <label class="quiz-option"><input type="radio" name="q4" value="2"><span>Yes, on all devices</span></label>
+            <label class="quiz-option"><input type="radio" name="q4" value="1"><span>Only some devices</span></label>
+            <label class="quiz-option"><input type="radio" name="q4" value="0"><span>No / not sure</span></label>
+          </div>
+        </div>
+        <!-- Q5 -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <p class="font-medium text-white mb-4">5. Do you regularly back up important business data?</p>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <label class="quiz-option"><input type="radio" name="q5" value="2"><span>Yes, automatically</span></label>
+            <label class="quiz-option"><input type="radio" name="q5" value="1"><span>Occasionally, manually</span></label>
+            <label class="quiz-option"><input type="radio" name="q5" value="0"><span>Rarely / never</span></label>
+          </div>
+        </div>
+        <!-- Q6 -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <p class="font-medium text-white mb-4">6. Do you have a way to monitor for suspicious account or network activity?</p>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <label class="quiz-option"><input type="radio" name="q6" value="2"><span>Yes, actively monitored</span></label>
+            <label class="quiz-option"><input type="radio" name="q6" value="1"><span>Somewhat</span></label>
+            <label class="quiz-option"><input type="radio" name="q6" value="0"><span>No monitoring in place</span></label>
+          </div>
+        </div>
+
+        <div class="text-center pt-2">
+          <button type="submit" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-navy-950 font-semibold hover:shadow-glow transition-all">
+            See My Security Score
+          </button>
+          <p id="quiz-error" class="hidden mt-3 text-sm text-red-400">Please answer all 6 questions to see your score.</p>
+        </div>
+      </form>
+
+      <!-- Result -->
+      <div id="quiz-result" class="hidden mt-10 reveal in-view rounded-2xl border p-8 text-center">
+        <p class="text-xs uppercase tracking-widest font-bold" id="result-label">Risk Level</p>
+        <h3 id="result-title" class="mt-2 font-display font-extrabold text-3xl">—</h3>
+        <p id="result-score" class="mt-2 text-slate-400 text-sm">Score: 0 / 12</p>
+        <div class="mt-6 text-left max-w-lg mx-auto">
+          <p class="text-sm font-semibold text-slate-200 mb-3">Recommended next steps:</p>
+          <ul id="result-recs" class="space-y-2 text-sm text-slate-400 list-none"></ul>
+        </div>
+        <p class="mt-6 text-xs text-slate-500 italic">This is an educational, illustrative risk assessment and does not constitute a full technical security audit.</p>
+        <a href="#pricing" class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-navy-950 font-semibold hover:shadow-glow transition-all">Get Protected Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="relative py-24 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="reveal max-w-2xl mx-auto text-center">
+        <span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">Pricing</span>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-white">Enterprise-level protection, small-business pricing</h2>
+        <p class="mt-4 text-slate-400">Start free, upgrade when you're ready. No long contracts, no confusing jargon.</p>
+      </div>
+
+      <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <!-- Free -->
+        <div class="reveal rounded-2xl border-2 border-cyan-400/60 bg-navy-900/60 p-7 flex flex-col relative shadow-glow">
+          <span class="absolute -top-3 left-6 px-3 py-1 rounded-full bg-cyan-400 text-navy-950 text-xs font-bold">Start Here</span>
+          <h3 class="font-semibold text-lg text-white mt-2">Free Security Check</h3>
+          <p class="mt-2 text-3xl font-display font-extrabold text-white">$0</p>
+          <p class="text-xs text-slate-400 mb-6">No credit card required</p>
+          <ul class="space-y-3 text-sm text-slate-300 flex-1">
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Guided security risk quiz</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Illustrative risk score</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Personalized tips</li>
+          </ul>
+          <a href="#security-check" class="mt-6 text-center px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-navy-950 font-semibold hover:shadow-glow transition-all">Run Free Check</a>
+        </div>
+
+        <!-- Starter -->
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] p-7 flex flex-col">
+          <h3 class="font-semibold text-lg text-white">Starter</h3>
+          <p class="mt-2 text-3xl font-display font-extrabold text-white">$29<span class="text-base font-medium text-slate-400">/mo</span></p>
+          <p class="text-xs text-slate-400 mb-6">For solo & small teams</p>
+          <ul class="space-y-3 text-sm text-slate-300 flex-1">
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Password monitoring</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Basic phishing protection</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Monthly security report</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Up to 5 devices</li>
+          </ul>
+          <a href="#contact" class="mt-6 text-center px-5 py-3 rounded-xl border border-white/15 text-slate-100 font-semibold hover:border-cyan-400/60 hover:text-cyan-300 transition-colors">Choose Starter</a>
+        </div>
+
+        <!-- Business -->
+        <div class="reveal card-hover rounded-2xl border-2 border-blue-400/60 bg-navy-900/60 p-7 flex flex-col relative">
+          <span class="absolute -top-3 left-6 px-3 py-1 rounded-full bg-blue-400 text-navy-950 text-xs font-bold">Most Popular</span>
+          <h3 class="font-semibold text-lg text-white mt-2">Business</h3>
+          <p class="mt-2 text-3xl font-display font-extrabold text-white">$79<span class="text-base font-medium text-slate-400">/mo</span></p>
+          <p class="text-xs text-slate-400 mb-6">For growing teams</p>
+          <ul class="space-y-3 text-sm text-slate-300 flex-1">
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Everything in Starter</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>24/7 threat monitoring</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Employee training modules</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Up to 25 devices, priority support</li>
+          </ul>
+          <a href="#contact" class="mt-6 text-center px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-navy-950 font-semibold hover:shadow-glow transition-all">Choose Business</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] p-7 flex flex-col">
+          <h3 class="font-semibold text-lg text-white">Enterprise / Custom</h3>
+          <p class="mt-2 text-3xl font-display font-extrabold text-white">Custom</p>
+          <p class="text-xs text-slate-400 mb-6">For multi-location businesses</p>
+          <ul class="space-y-3 text-sm text-slate-300 flex-1">
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Everything in Business</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Custom integrations</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Dedicated account manager</li>
+            <li class="flex gap-2"><svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Unlimited devices</li>
+          </ul>
+          <a href="#contact" class="mt-6 text-center px-5 py-3 rounded-xl border border-white/15 text-slate-100 font-semibold hover:border-cyan-400/60 hover:text-cyan-300 transition-colors">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / WHY US -->
+  <section id="about" class="relative py-24 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 items-center">
+      <div class="reveal">
+        <span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">Why Sentrium</span>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-white">Built specifically for small businesses</h2>
+        <p class="mt-5 text-slate-400 leading-relaxed">We started Sentrium because enterprise cybersecurity tools are too complex and too expensive for small teams — while free tools leave gaps that attackers exploit. We focus on proactive, simple, and affordable protection so you can run your business with confidence.</p>
+
+        <div class="mt-8 space-y-5">
+          <div class="flex gap-4">
+            <div class="h-10 w-10 rounded-xl bg-cyan-400/10 flex items-center justify-center shrink-0">
+              <svg class="h-5 w-5 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v5c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6l8-3Z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-white">Built for small businesses</h4>
+              <p class="text-sm text-slate-400 mt-1">No enterprise complexity — just what you actually need.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="h-10 w-10 rounded-xl bg-blue-400/10 flex items-center justify-center shrink-0">
+              <svg class="h-5 w-5 text-blue-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-white">Proactive, not reactive</h4>
+              <p class="text-sm text-slate-400 mt-1">We help you catch risks before they become incidents.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="h-10 w-10 rounded-xl bg-emerald-400/10 flex items-center justify-center shrink-0">
+              <svg class="h-5 w-5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h7"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-white">Simple, jargon-free guidance</h4>
+              <p class="text-sm text-slate-400 mt-1">Clear explanations built for non-technical business owners.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="h-10 w-10 rounded-xl bg-purple-400/10 flex items-center justify-center shrink-0">
+              <svg class="h-5 w-5 text-purple-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-white">Affordable, enterprise-grade protection</h4>
+              <p class="text-sm text-slate-400 mt-1">Pricing designed for small business budgets, not corporate ones.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal grid grid-cols-2 gap-5">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
+          <p class="font-display text-3xl font-extrabold text-white">1,200+</p>
+          <p class="text-xs text-slate-400 mt-1">Small businesses onboarded</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
+          <p class="font-display text-3xl font-extrabold text-white">24/7</p>
+          <p class="text-xs text-slate-400 mt-1">Security monitoring</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
+          <p class="font-display text-3xl font-extrabold text-white">6</p>
+          <p class="text-xs text-slate-400 mt-1">Core protection modules</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center">
+          <p class="font-display text-3xl font-extrabold text-white">&lt; 10 min</p>
+          <p class="text-xs text-slate-400 mt-1">To get your security score</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources" class="relative py-24 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="reveal max-w-2xl mx-auto text-center">
+        <span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">Learn</span>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-white">Cybersecurity education for busy owners</h2>
+        <p class="mt-4 text-slate-400">Short, practical guides — no technical background needed.</p>
+      </div>
+
+      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="#" class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden group">
+          <div class="h-36 bg-gradient-to-br from-cyan-500/20 to-blue-600/10 flex items-center justify-center">
+            <svg class="h-10 w-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-cyan-300 font-semibold uppercase tracking-wide">Guide</p>
+            <h3 class="mt-2 font-semibold text-white group-hover:text-cyan-300 transition-colors">Password Security 101 for Small Teams</h3>
+            <p class="mt-2 text-sm text-slate-400">A simple checklist for stronger passwords across your business.</p>
+          </div>
+        </a>
+        <a href="#" class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden group">
+          <div class="h-36 bg-gradient-to-br from-amber-500/20 to-red-500/10 flex items-center justify-center">
+            <svg class="h-10 w-10 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-amber-300 font-semibold uppercase tracking-wide">Guide</p>
+            <h3 class="mt-2 font-semibold text-white group-hover:text-cyan-300 transition-colors">How to Spot a Phishing Email</h3>
+            <p class="mt-2 text-sm text-slate-400">Five warning signs every employee should know about.</p>
+          </div>
+        </a>
+        <a href="#" class="reveal card-hover rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden group">
+          <div class="h-36 bg-gradient-to-br from-emerald-500/20 to-cyan-500/10 flex items-center justify-center">
+            <svg class="h-10 w-10 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><rect x="4" y="4" width="16" height="16" rx="3"/></svg>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-emerald-300 font-semibold uppercase tracking-wide">Checklist</p>
+            <h3 class="mt-2 font-semibold text-white group-hover:text-cyan-300 transition-colors">Cybersecurity Checklist for Small Business</h3>
+            <p class="mt-2 text-sm text-slate-400">A quick-reference checklist covering the essentials.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="relative py-24 border-t border-white/5">
+    <div class="max-w-3xl mx-auto px-5 sm:px-8">
+      <div class="reveal text-center">
+        <span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">FAQ</span>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-white">Frequently asked questions</h2>
+      </div>
+
+      <div class="mt-12 space-y-4" id="faq-list">
+        <div class="accordion-item reveal rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+          <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 p-5 text-left">
+            <span class="font-medium text-white">Do I need an IT team to use Sentrium?</span>
+            <svg class="chevron h-5 w-5 text-cyan-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content px-5">
+            <p class="pb-5 text-sm text-slate-400">Not at all. Sentrium is built for business owners without technical backgrounds. Everything is explained in plain language with clear, guided next steps.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+          <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 p-5 text-left">
+            <span class="font-medium text-white">Is my business too small to be targeted?</span>
+            <svg class="chevron h-5 w-5 text-cyan-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content px-5">
+            <p class="pb-5 text-sm text-slate-400">No — many attacks are automated and target businesses of all sizes indiscriminately. Small businesses are often seen as easier targets because they typically have fewer defenses in place.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+          <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 p-5 text-left">
+            <span class="font-medium text-white">What happens after I run the free security check?</span>
+            <svg class="chevron h-5 w-5 text-cyan-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content px-5">
+            <p class="pb-5 text-sm text-slate-400">You'll receive an illustrative risk score and simple, prioritized recommendations. From there, you can choose a plan that fits your needs or continue exploring on your own.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+          <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 p-5 text-left">
+            <span class="font-medium text-white">How is this different from enterprise security tools?</span>
+            <svg class="chevron h-5 w-5 text-cyan-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content px-5">
+            <p class="pb-5 text-sm text-slate-400">Enterprise tools are often complex, expensive, and require dedicated staff to manage. Sentrium is streamlined specifically for small teams — simple setup, clear guidance, and affordable pricing.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+          <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 p-5 text-left">
+            <span class="font-medium text-white">Can Sentrium guarantee my business won't be hacked?</span>
+            <svg class="chevron h-5 w-5 text-cyan-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content px-5">
+            <p class="pb-5 text-sm text-slate-400">No cybersecurity solution can guarantee complete protection or zero risk. Sentrium is designed to significantly reduce common risks and help you respond faster — not to promise 100% security.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+          <button type="button" class="faq-btn w-full flex items-center justify-between gap-4 p-5 text-left">
+            <span class="font-medium text-white">How long does it take to get protected?</span>
+            <svg class="chevron h-5 w-5 text-cyan-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content px-5">
+            <p class="pb-5 text-sm text-slate-400">Most businesses complete onboarding and activate core protections in under a day — no lengthy implementation projects required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="relative py-24 border-t border-white/5 overflow-hidden">
+    <div class="absolute inset-0 bg-grid"></div>
+    <div class="absolute left-1/2 -translate-x-1/2 top-0 w-[36rem] h-[24rem] bg-cyan-500/20 blur-3xl rounded-full"></div>
+    <div class="relative max-w-3xl mx-auto px-5 sm:px-8 text-center reveal">
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white">See where your business really stands</h2>
+      <p class="mt-4 text-slate-400">It takes less than 10 minutes to get your free, personalized security score.</p>
+      <a href="#security-check" class="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-navy-950 font-semibold hover:shadow-glow transition-all">
+        Run Your Free Security Check
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="relative py-24 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14">
+      <div class="reveal">
+        <span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">Contact</span>
+        <h2 class="mt-3 font-display font-extrabold text-3xl sm:text-4xl text-white">Talk to our team</h2>
+        <p class="mt-4 text-slate-400 max-w-md">Questions about pricing, onboarding, or your security score? We're happy to help — no sales pressure.</p>
+
+        <div class="mt-8 space-y-4 text-sm">
+          <div class="flex items-center gap-3 text-slate-300"><svg class="h-5 w-5 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>hello@sentrium.io</div>
+          <div class="flex items-center gap-3 text-slate-300"><svg class="h-5 w-5 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.9.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2Z"/></svg>1-800-555-0134</div>
+          <div class="flex items-center gap-3 text-slate-300"><svg class="h-5 w-5 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-5.5 8-12a8 8 0 1 0-16 0c0 6.5 8 12 8 12Z"/><circle cx="12" cy="10" r="3"/></svg>Remote-first, serving small businesses everywhere</div>
+        </div>
+      </div>
+
+      <form id="contact-form" class="reveal rounded-2xl border border-white/10 bg-white/[0.03] p-7 space-y-4">
+        <div>
+          <label class="text-xs font-medium text-slate-400">Name</label>
+          <input required type="text" class="mt-1.5 w-full rounded-lg bg-navy-900 border border-white/10 px-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-400/60" placeholder="Jane Smith">
+        </div>
+        <div>
+          <label class="text-xs font-medium text-slate-400">Business Email</label>
+          <input required type="email" class="mt-1.5 w-full rounded-lg bg-navy-900 border border-white/10 px-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-400/60" placeholder="jane@yourbusiness.com">
+        </div>
+        <div>
+          <label class="text-xs font-medium text-slate-400">Message</label>
+          <textarea required rows="4" class="mt-1.5 w-full rounded-lg bg-navy-900 border border-white/10 px-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-400/60" placeholder="Tell us about your business..."></textarea>
+        </div>
+        <button type="submit" class="w-full px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-navy-950 font-semibold hover:shadow-glow transition-all">Send Message</button>
+        <p id="contact-success" class="hidden text-sm text-emerald-400 text-center">Thanks! We'll be in touch within 1 business day.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 bg-navy-950/60">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2">
+      <a href="#home" class="flex items-center gap-2.5">
+        <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-5 w-5 text-navy-950">
+            <path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="font-display font-extrabold text-lg text-white">Sentrium</span>
+      </a>
+      <p class="mt-4 text-sm text-slate-400 max-w-xs leading-relaxed">Affordable, easy-to-understand cybersecurity protection built for small businesses, freelancers, clinics, and local shops.</p>
+    </div>
+
+    <div>
+      <h4 class="text-sm font-semibold text-white">Solutions</h4>
+      <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
+        <li><a href="#solutions" class="hover:text-cyan-300 transition-colors">Password Security</a></li>
+        <li><a href="#solutions" class="hover:text-cyan-300 transition-colors">Phishing Protection</a></li>
+        <li><a href="#solutions" class="hover:text-cyan-300 transition-colors">Data Protection</a></li>
+        <li><a href="#solutions" class="hover:text-cyan-300 transition-colors">Device Security</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-sm font-semibold text-white">Company</h4>
+      <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
+        <li><a href="#resources" class="hover:text-cyan-300 transition-colors">Resources</a></li>
+        <li><a href="#pricing" class="hover:text-cyan-300 transition-colors">Pricing</a></li>
+        <li><a href="#about" class="hover:text-cyan-300 transition-colors">About</a></li>
+        <li><a href="#contact" class="hover:text-cyan-300 transition-colors">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-sm font-semibold text-white">Legal</h4>
+      <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
+        <li><a href="#" class="hover:text-cyan-300 transition-colors">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-cyan-300 transition-colors">Terms of Service</a></li>
+        <li><a href="#" class="hover:text-cyan-300 transition-colors">Security</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/5 py-6">
+    <p class="text-center text-xs text-slate-500">© <span id="year"></span> Sentrium Security, Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .quiz-option {
+    display: flex; align-items: center; justify-content: center;
+    padding: 0.7rem 1rem; border-radius: 0.75rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.02);
+    font-size: 0.875rem; color: #cbd5e1; cursor: pointer;
+    transition: all .25s ease; text-align:center;
+  }
+  .quiz-option:hover { border-color: rgba(34,211,238,0.4); }
+  input[type="radio"]:checked + span { color: #67e8f9; font-weight: 600; }
+  .quiz-option:has(input:checked) { border-color: #22d3ee; background: rgba(34,211,238,0.08); box-shadow: 0 0 0 1px rgba(34,211,238,0.3); }
+  .nav-link:hover { color: #67e8f9; }
+</style>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  let menuOpenState = false;
+  function setMenu(open) {
+    menuOpenState = open;
+    if (open) {
+      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      mobileMenu.style.opacity = '1';
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    } else {
+      mobileMenu.style.maxHeight = '0px';
+      mobileMenu.style.opacity = '0';
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+  setMenu(false);
+  menuBtn.addEventListener('click', () => setMenu(!menuOpenState));
+  document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  // Navbar shadow on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar.classList.add('shadow-lg', 'shadow-black/30');
+    } else {
+      navbar.classList.remove('shadow-lg', 'shadow-black/30');
+    }
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion-item');
+      item.classList.toggle('open');
+    });
+  });
+
+  // Quiz logic
+  const quizForm = document.getElementById('quiz-form');
+  const quizError = document.getElementById('quiz-error');
+  const quizResult = document.getElementById('quiz-result');
+  const resultTitle = document.getElementById('result-title');
+  const resultScore = document.getElementById('result-score');
+  const resultRecs = document.getElementById('result-recs');
+  const resultLabel = document.getElementById('result-label');
+
+  const recommendations = {
+    high: [
+      "Turn on multi-factor authentication (MFA) on your email and financial accounts first.",
+      "Replace reused passwords with unique ones, starting with your most critical accounts.",
+      "Install basic antivirus / endpoint protection on all business devices.",
+      "Schedule a short phishing-awareness session with your team this month.",
+      "Set up automatic backups for your most important business files."
+    ],
+    medium: [
+      "Extend MFA to any remaining business accounts that don't have it yet.",
+      "Review password habits across your team and eliminate reused passwords.",
+      "Add monitoring so you're alerted to suspicious activity, not just protected against known threats.",
+      "Run a refresher phishing-awareness session for your team."
+    ],
+    low: [
+      "Keep MFA and password policies up to date as you add new tools or employees.",
+      "Continue regular phishing-awareness refreshers to stay sharp.",
+      "Periodically review device and account access as your team grows.",
+      "Consider 24/7 monitoring for an added layer of early detection."
+    ]
+  };
+
+  quizForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const names = ['q1','q2','q3','q4','q5','q6'];
+    let total = 0;
+    let answeredAll = true;
+
+    names.forEach(name => {
+      const checked = quizForm.querySelector('input[name="' + name + '"]:checked');
+      if (!checked) { answeredAll = false; }
+      else { total += parseInt(checked.value, 10); }
+    });
+
+    if (!answeredAll) {
+      quizError.classList.remove('hidden');
+      return;
+    }
+    quizError.classList.add('hidden');
+
+    let category, colorClasses, recs;
+    if (total >= 9) {
+      category = 'Low Risk';
+      colorClasses = ['border-emerald-400/50', 'bg-emerald-400/5'];
+      resultLabel.className = 'text-xs uppercase tracking-widest font-bold text-emerald-400';
+      resultTitle.className = 'mt-2 font-display font-extrabold text-3xl text-emerald-400';
+      recs = recommendations.low;
+    } else if (total >= 5) {
+      category = 'Medium Risk';
+      colorClasses = ['border-amber-400/50', 'bg-amber-400/5'];
+      resultLabel.className = 'text-xs uppercase tracking-widest font-bold text-amber-400';
+      resultTitle.className = 'mt-2 font-display font-extrabold text-3xl text-amber-400';
+      recs = recommendations.medium;
+    } else {
+      category = 'High Risk';
+      colorClasses = ['border-red-400/50', 'bg-red-400/5'];
+      resultLabel.className = 'text-xs uppercase tracking-widest font-bold text-red-400';
+      resultTitle.className = 'mt-2 font-display font-extrabold text-3xl text-red-400';
+      recs = recommendations.high;
+    }
+
+    quizResult.className = 'mt-10 reveal in-view rounded-2xl border p-8 text-center ' + colorClasses.join(' ');
+    resultTitle.textContent = category;
+    resultScore.textContent = 'Score: ' + total + ' / 12';
+    resultRecs.innerHTML = '';
+    recs.forEach(r => {
+      const li = document.createElement('li');
+      li.className = 'flex gap-2';
+      li.innerHTML = '<svg class="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>' + r + '</span>';
+      resultRecs.appendChild(li);
+    });
+
+    quizResult.classList.remove('hidden');
+    quizResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  // Contact form
+  const contactForm = document.getElementById('contact-form');
+  const contactSuccess = document.getElementById('contact-success');
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    contactSuccess.classList.remove('hidden');
+    contactForm.reset();
+  });
+</script>
+</body>
+</html>
